@@ -1,0 +1,25 @@
+{
+  "name": "project-shasta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon local.js",
+    "deploy": "serverless deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "serverless": "^1.64.0"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.3.6",
+    "body-parse": "^0.1.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "touch": "^3.1.0",
+    "twilio": "^3.39.5"
+  }
+}

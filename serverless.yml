@@ -1,0 +1,29 @@
+service: shasta
+
+provider:
+ name: aws
+ runtime: nodejs12.x
+ region: us-east-1
+ iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - lambda:InvokeFunction
+    Resource: "*"
+
+functions:
+ api:
+   handler: lambda.handler
+   events:
+     - http: ANY {proxy+}
+     - http: ANY /
+ sms:
+   handler: sms.handler
+   environment:
+    ACCOUNT_SID: <ACCOUNT_SID>
+    AUTH_TOKEN: <AUTH_TOKEN>
+    PHONE_NUMBER: <PHONE_NUMBER>
+
+package:
+  exclude:
+    - '!node_modules/aws-sdk/**'
+    - '!node_modules/twilio/**'
